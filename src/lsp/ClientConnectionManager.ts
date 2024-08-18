@@ -137,8 +137,8 @@ export class ClientConnectionManager {
 			});
 			return;
 		}
-
-		this.client.port = await get_free_port();
+		
+		this.client.port = get_configuration("lsp.serverPort");
 
 		log.info(`starting headless LSP on port ${this.client.port}`);
 
