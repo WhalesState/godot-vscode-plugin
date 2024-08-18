@@ -13,6 +13,7 @@ import {
 } from "../utils";
 import { prompt_for_godot_executable, prompt_for_reload, select_godot_executable } from "../utils/prompts";
 import { subProcess, killSubProcesses } from "../utils/subspawn";
+import { debug } from "console";
 
 const log = createLogger("lsp.manager", { output: "Godot LSP" });
 
@@ -105,7 +106,7 @@ export class ClientConnectionManager {
 			targetVersion = "4.2";
 		}
 		const settingName = `editorPath.godot${projectVersion[0]}`;
-		const godotPath = get_configuration(settingName);
+		const godotPath = get_configuration(settingName).replace(/^"/, "").replace(/"$/, "");
 
 		const result = verify_godot_version(godotPath, projectVersion[0]);
 		switch (result.status) {

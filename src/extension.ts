@@ -149,11 +149,11 @@ async function switch_scene_script() {
 
 async function open_workspace_with_editor() {
 	const projectDir = await get_project_dir();
-	const projectVersion = await get_project_version();
+	const projectVersion = "4";
 
-	const settingName = `editorPath.godot${projectVersion[0]}`;
+	const settingName = `editorPath.godot4`;
 	const godotPath = get_configuration(settingName);
-	const result = verify_godot_version(godotPath, projectVersion[0]);
+	const result = verify_godot_version(godotPath, "4");
 
 	switch (result.status) {
 		case "SUCCESS": {
