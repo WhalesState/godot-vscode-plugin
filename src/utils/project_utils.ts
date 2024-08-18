@@ -9,7 +9,7 @@ let projectFile = undefined;
 export async function get_project_dir() {
 	let file = "";
 	if (vscode.workspace.workspaceFolders != undefined) {
-		const files = await vscode.workspace.findFiles("**/project.godot");
+		const files = await vscode.workspace.findFiles("**/project.pixel_designer");
 		// if multiple project files, pick the top-most one
 		const best = files.reduce((a, b) => a.fsPath.length <= b.fsPath.length ? a : b);
 		if (best) {
@@ -55,7 +55,7 @@ export function find_project_file(start: string, depth: number = 20) {
 	if (start == folder) {
 		return null;
 	}
-	const projectFile = path.join(folder, "project.godot");
+	const projectFile = path.join(folder, "project.pixel_designer");
 
 	if (fs.existsSync(projectFile) && fs.statSync(projectFile).isFile()) {
 		return projectFile;
@@ -68,7 +68,7 @@ export function find_project_file(start: string, depth: number = 20) {
 }
 
 export async function convert_resource_path_to_uri(resPath: string): Promise<vscode.Uri | null> {
-	const dir = find_project_file(resPath).replace("project.godot", "");
+	const dir = find_project_file(resPath).replace("project.pixel_designer", "");
 	return vscode.Uri.joinPath(vscode.Uri.file(dir), resPath.substring(6));
 }
 

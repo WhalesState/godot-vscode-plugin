@@ -26,7 +26,7 @@
 		"Other"
 	],
 	"activationEvents": [
-		"workspaceContains:project.godot",
+		"workspaceContains:project.pixel_designer",
 		"onDebugResolve:godot"
 	],
 	"main": "./out/extension.js",
@@ -404,7 +404,7 @@
 						"properties": {
 							"project": {
 								"type": "string",
-								"description": "Absolute path to a directory with a project.godot file.",
+								"description": "Absolute path to a directory with a project.pixel_designer file.",
 								"default": "${workspaceFolder}"
 							},
 							"address": {
@@ -425,7 +425,7 @@
 									"pinned"
 								],
 								"enumDescriptions": [
-									"Launch the 'main_scene' specified in project.godot",
+									"Launch the 'main_scene' specified in project.pixel_designer",
 									"Launch the scene (or related scene) in the current editor",
 									"Launch the pinned scene"
 								],
